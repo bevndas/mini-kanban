@@ -1,7 +1,8 @@
 import React from 'react';
+import {Outlet} from "react-router-dom";
 
 const Root = () => {
-    return <p>This is root</p>
+    return <Outlet />
 }
 
 export default Root;
