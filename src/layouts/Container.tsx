@@ -1,10 +1,11 @@
 import {PropsWithChildren} from "react";
+import {Layout} from "antd";
 
 const Container = (props: PropsWithChildren) => {
     return (
-        <div className='h-full w-full p-4'>
+        <Layout className='h-full w-full p-4'>
             {props.children}
-        </div>
+        </Layout>
     )
 }
 export default Container;

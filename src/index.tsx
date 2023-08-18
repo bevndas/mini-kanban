@@ -9,14 +9,15 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+
 const theme = {
     token: {
         fontFamily: 'Helvetica',
         colorPrimary: "#421983",
-        colorInfo: "#421983",
+        colorInfo: "#ff622d",
         colorSuccess: "#ff622d",
         colorError: "#f51a38",
-        fontSize: 13,
+        fontSize: 14,
         lineHeight: 1.5715,
         borderRadius: 5
     }
