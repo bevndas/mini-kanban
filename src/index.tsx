@@ -9,7 +9,6 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-
 const theme = {
     token: {
         fontFamily: 'Helvetica',
@@ -24,9 +23,9 @@ const theme = {
 };
 root.render(
   <React.StrictMode>
-      <ConfigProvider theme={theme}>
-       <App />
-      </ConfigProvider>
+          <ConfigProvider theme={theme}>
+              <App />
+          </ConfigProvider>
   </React.StrictMode>
 );
 

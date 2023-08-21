@@ -3,18 +3,15 @@ import {Button, Form, Input, Typography} from "antd";
 import Link from "antd/es/typography/Link";
 import {Link as RLink} from "react-router-dom";
 import {Content} from "antd/es/layout/layout";
+import {IRegister, useRegister} from "../../hooks/auth/useRegister";
 
-type SignUpForm = {
-        email: string;
-        username: string;
-        password: string;
-};
 
 const SignUp: React.FC = (props) => {
     let {Title, Text} = Typography;
+    const {status, mutate } = useRegister();
 
-    const onSignUp = (values: SignUpForm) => {
-        console.log('values', values)
+    const onSignUp = (values: IRegister) => {
+        mutate(values);
     }
 
     return (
@@ -27,17 +24,21 @@ const SignUp: React.FC = (props) => {
                 className='w-full max-w-xs'
                 autoComplete='off'
             >
-                <Form.Item name={'email'}>
+                <Form.Item name={'email'} rules={[{
+                    required: true,
+                    type: "email",
+                    message: "This is not a valid email"
+                }]}>
                     <Input size={'large'} placeholder="Email" />
                 </Form.Item>
-                <Form.Item name={'username'}>
+                <Form.Item name={'username'} rules={[{required: true}]}>
                     <Input placeholder="Username" size={'large'} />
                 </Form.Item>
-                <Form.Item name={'password'}>
+                <Form.Item name={'password'} rules={[{required: true}]}>
                     <Input.Password placeholder="Password" size={'large'} />
                 </Form.Item>
 
-                <Button type="primary" size="large" block htmlType={"submit"}> Create Account</Button>
+                <Button type="primary" size="large" block htmlType={"submit"} loading={status === 'loading'}> Create Account</Button>
             </Form>
 
             <div className="mt-4 text-left w-full">

@@ -3,6 +3,7 @@ import {endpoints} from "../../global/endpoints";
 import {useNavigate} from "react-router-dom";
 import {useMutation} from "react-query";
 import {routePaths} from "../../global/routePaths";
+import {notification} from "antd";
 
 export interface IRegister  {
     email: string;
@@ -18,7 +19,10 @@ export function useRegister() {
     const navigate = useNavigate();
 
     return useMutation(register, {
-        onSuccess: ({ paylaod }) => {
+        onSuccess: () => {
+            notification.success({
+                message: 'User created successfully'
+            });
             navigate(routePaths.auth.login);
         }
     })

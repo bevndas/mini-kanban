@@ -4,6 +4,7 @@ import {endpoints} from "../../global/endpoints";
 import http from "../../utils/http";
 import tokenService from '../../utils/token';
 import {routePaths} from "../../global/routePaths";
+import userService from '../../utils/user';
 
 export interface ILogin  {
     username: string;
@@ -18,8 +19,9 @@ export function useLogin() {
     const navigate = useNavigate();
 
     return useMutation(login, {
-        onSuccess: ({ payload }) => {
-            tokenService.setToken(payload.data);
+        onSuccess: (payload) => {
+            tokenService.setToken(payload.data.token);
+            userService.setUserInfo({userId: payload.data.userId});
             navigate(routePaths.project.projectList);
         }
     })

@@ -7,7 +7,7 @@ export const routePaths = {
     },
     //private
     project: {
-        projectList: '/projects',
-        projectById: '/projects/:id'
+        projectList: '/',
+        projectById: '/project/:id'
     }
 }

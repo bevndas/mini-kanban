@@ -5,7 +5,7 @@ import {Typography} from "antd";
 interface Error {statusText: string; message: string}
 
 
-const Error: React.FC = () => {
+const ErrorPage: React.FC = () => {
   const error  = useRouteError() as Error;
   const {Text, Title} = Typography;
 
@@ -20,4 +20,4 @@ const Error: React.FC = () => {
   );
 };
 
-export default Error;
+export default ErrorPage;
